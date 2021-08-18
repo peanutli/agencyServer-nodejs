@@ -27,7 +27,7 @@ app.all('*', function (req, res, next) {
 app.use(express.static('./index'))
 // 把 node_modules 文件夹，托管为静态资源目录
 app.use('/node_modules', express.static('./node_modules'))
-const port = 8080;
+const port = 3000;
 // const ip = '127.0.0.1'
 app.listen(port,()=>{
     //console.log(`Express server runing at http://${ip}:${port}`)
