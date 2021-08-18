@@ -1,15 +1,8 @@
 const express =require('express')
 const app = express();
 const axios = require('axios')
-/* app.get('/',(req,res)=>{
-    res.send('请求成功!')
-}) */
+
 app.get('/api/proxy',(req,res)=>{
-    let menu = encodeURI('沙拉')//"%E6%B2%99%E6%8B%89" 转换编码
-    // axios.get(`https://apis.juhe.cn/cook/query.php?menu=${menu}&key=fd075da6f7c344cbbb8948ce659312ff&dtype=json`)
-    // .then(result=>{
-    //     res.send({msg:result.data})
-    // })
     axios.post(`http://rap2api.taobao.org/app/mock/287809/auth/getUserTreeInfo`)
     .then(result=>{
         res.send({msg:result.data})
@@ -27,14 +20,4 @@ app.all('*', function (req, res, next) {
 app.use(express.static('./index'))
 // 把 node_modules 文件夹，托管为静态资源目录
 app.use('/node_modules', express.static('./node_modules'))
-// const port = 3000;
-// const ip = '127.0.0.1'
 app.listen(process.env.PORT || 5000)
-
-// //获取信息接口
-// app.post('/auth/getUserTreeInfo',(req,res)=>{
-//     axios.post(`http://rap2api.taobao.org/app/mock/287809/auth/getUserTreeInfo`)
-//     .then(result=>{
-//         res.send({msg:result.data})
-//     })
-// })
