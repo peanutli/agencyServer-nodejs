@@ -28,9 +28,9 @@ app.use(express.static('./index'))
 // 把 node_modules 文件夹，托管为静态资源目录
 app.use('/node_modules', express.static('./node_modules'))
 const port = 8080;
-const ip = '127.0.0.1'
-app.listen(port,`${ip}`,()=>{
-    console.log(`Express server runing at http://${ip}:${port}`)
+// const ip = '127.0.0.1'
+app.listen(port,()=>{
+    //console.log(`Express server runing at http://${ip}:${port}`)
 })
 
 // //获取信息接口
